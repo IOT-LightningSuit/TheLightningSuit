@@ -8,6 +8,8 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { WorkoutsComponent } from './workouts/workouts.component';
     NavComponent,
     HomeComponent,
     AboutComponent,
-    WorkoutsComponent
+    WorkoutsComponent,
+    PersonalInfoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

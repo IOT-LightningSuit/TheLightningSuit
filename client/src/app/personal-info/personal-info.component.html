@@ -1,0 +1,44 @@
+
+<p>the user chose the following workout (1-easy 2-normal 3-hard): {{workoutMode}}</p>
+
+<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <h2 class="text-center text-primary">Personal information</h2>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+             <input type="text" class="form-control" name="firstName" 
+                 [(ngModel)]="model.firstName" placeholder="First name">
+        </div>
+
+        <div class="form-group col-md-6">
+        <input type="text" class="form-control" name="lastName" 
+            [(ngModel)]="model.lastName" placeholder="Last name">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+             <input type="number" class="form-control" name="height" 
+               [(ngModel)]="model.height" placeholder="Height(cm)">
+        </div>
+        <div class="form-group col-md-3">
+            <input type="number" class="form-control" name="age" 
+              [(ngModel)]="model.age" placeholder="Age">
+       </div>
+       <div class="form-group col-md-3">
+        <input type="number" class="form-control" name="weight" 
+          [(ngModel)]="model.weight" placeholder="Weight(kg)">
+   </div>
+        <div class="form-group col-md-3">
+            <input type="number" class="form-control" name="aaa" 
+                [(ngModel)]="model.aaa" placeholder="something">
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <button class="btn btn-success mr-2" type="submit">Start now</button>
+        <button class="btn btn-default mr-2" (click)="cancel()" type="button">Cancel</button>
+    </div>
+
+
+    
+</form>
