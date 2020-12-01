@@ -6,3 +6,5 @@
 ### https://www.instructables.com/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 ### https://iot-guider.com/esp8266-nodemcu/serial-communication-between-nodemcu-and-arduino/
 
+### How to do POST from nodemcu: https://techtutorialsx.com/2016/07/21/esp8266-post-requests/
+
