@@ -1,0 +1,16 @@
+#Important Links
+1. https://builtin.com/big-data/iot-big-data-analytics-examples
+2. https://wso2.com/whitepapers/iot-analytics-using-big-data-to-architect-iot-solutions
+3. https://en.wikipedia.org/wiki/Complex_event_processing
+4. https://en.wikipedia.org/wiki/Stream_processing
+5. https://en.wikipedia.org/wiki/Reactive_programming
+6. https://en.wikipedia.org/wiki/Apache_Spark
+7. https://learning.sap-press.com/sap-hana
+8. https://en.wikipedia.org/wiki/VoltDB
+9. https://en.wikipedia.org/wiki/In-memory_database
+10. https://en.wikipedia.org/wiki/Apache_Drill
+11. https://www.google.com/search?q=bigquery&oq=Bigque&aqs=chrome.1.69i57j0l4j0i395l5.7649j1j7&sourceid=chrome&ie=UTF-8
+12. https://en.wikipedia.org/wiki/Online_analytical_processing
+13. https://en.wikipedia.org/wiki/Database_index
+14. https://en.wikipedia.org/wiki/Relational_database
+15. https://cwiki.apache.org/confluence/display/solr/FrontPage
