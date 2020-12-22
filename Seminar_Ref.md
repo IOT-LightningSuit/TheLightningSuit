@@ -14,3 +14,7 @@
 13. https://en.wikipedia.org/wiki/Database_index
 14. https://en.wikipedia.org/wiki/Relational_database
 15. https://cwiki.apache.org/confluence/display/solr/FrontPage
+16. https://www.sciencedirect.com/science/article/pii/S0268401216302778?casa_token=1r9OHwmg_v4AAAAA:wLaOLlaRNcowPz2nqHQlTY15jxtclClsGRWLa6G5oYNCQCZP3ehLIjKQ_sPKNY4NCmun6d2XqQ
+17. https://www.sciencedirect.com/science/article/pii/B9780128183182000052
+18. https://www.emerald.com/insight/content/doi/10.1108/PRR-08-2019-0027/....-analytics
+19. https://blogs.saphana.com/2013/10/15/sap-hana-for-healthcare-bringing-the-world-closer-to-real-time-personalized-medicine/
