@@ -9,24 +9,22 @@ float gyroX, gyroY, gyroZ;
 String str;
 SoftwareSerial espSerial(rxPin, txPin);
 
-typedef enum ESensors {
-  CENTER_BACK,
-  RIGHT_SHOULDER,
-
-  NUM_OF_CONNECTED_SENSORS,
-  
-  RIGHT_FOREARM,
-  RIGHT_WRIST,
-  LEFT_SOULDER,
-  LEFT_FOREARM,
-  LEFT_WRIST,
-  RIGHT_THIGH,  
-  RIGHT_SHIN,
-  RIGHT_ANKLE,
-  LEFT_THIGH,
-  LEFT_SHIN,
-  LEFT_ANKLE
-};
+  typedef enum ESensors {
+    CENTER_BACK,
+    RIGHT_SHOULDER,
+    RIGHT_FOREARM,
+    RIGHT_WRIST,
+    NUM_OF_CONNECTED_SENSORS,
+    LEFT_SOULDER,
+    LEFT_FOREARM,
+    LEFT_WRIST,
+    RIGHT_THIGH,  
+    RIGHT_SHIN,
+    RIGHT_ANKLE,
+    LEFT_THIGH,
+    LEFT_SHIN,
+    LEFT_ANKLE
+  };
 
 MPU9250 IMU(Wire, 0x68);
 
@@ -76,9 +74,9 @@ void loop() {
     gyroZ = IMU.getGyroZ_rads();
   
     // display the data
-    str = String("Sensor ") + String(i) + String(" X: ") + String(gyroX) + String("   ") + String("Y: ") + String(gyroY)+ String("   ") + String("Z: ") + String(gyroZ);
+    str = String("S") + String(i) + String("X") + String(gyroX) + String("Y") + String(gyroY) + String("Z") + String(gyroZ) + String("E");
     espSerial.println(str);
   }
   
-  delay(50);
+  delay(250);
 }
