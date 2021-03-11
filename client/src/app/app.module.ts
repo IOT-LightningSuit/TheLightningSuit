@@ -10,6 +10,8 @@ import { AboutComponent } from './about/about.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { FormsModule } from '@angular/forms';
+import { WorkoutSummaryComponent } from './workout-summary/workout-summary.component';
+import { StickmanComponent } from './stickman/stickman.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     WorkoutsComponent,
     PersonalInfoComponent,
+    WorkoutSummaryComponent,
+    StickmanComponent,
   ],
   imports: [
     BrowserModule,
