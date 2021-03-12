@@ -1,1 +1,192 @@
-<p>stickman works!</p>
+
+<style>
+  header, footer {
+      padding: 0.2em;
+      color: white;
+      background-color: #606349;
+      clear: left;
+      text-align: center;
+      font-size: 150%;
+  }
+  div.canvas {
+    float: inherit;
+    width: 512px;
+    height: 512px;
+    overflow: hidden;
+    padding: 0.5em;
+    margin: 0.5em;
+    border: 1px solid gray;
+  }
+  div.menu {
+    float: left;
+    margin-top: 0.5em;
+    overflow: hidden;
+    width: inherit;
+    height: inherit;
+    position: relative;
+    padding: 0.5em;
+    margin: 0.5em;
+    border: 1px solid gray;
+  }
+  div.single {
+    padding: 0.2em;
+    margin: 0.2em;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid lightgray;
+  }
+  html {
+      background-color: #eaf2b0;;
+  }
+</style>
+
+<html>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute  vec4 vPosition;
+
+        uniform mat4 modelViewMatrix;
+        uniform mat4 projectionMatrix;
+
+        void main()
+        {
+            gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+        }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+
+        void main()
+        {
+            gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+
+        }
+    </script>
+    <script type="text/javascript" src="../SourceCode/Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../SourceCode/Common/InitShaders.js"></script>
+    <script type="text/javascript" src="../SourceCode/Common/MV.js"></script>
+    <script type="text/javascript" src="../SourceCode/project.js"></script>
+
+    <header> CS465 - Computer Graphics - Project #2 </header>
+
+    <body>
+        <div class="menu">
+            <div id="MainMenu" class="menu">
+                Main Menu
+                <div class="single">
+                    <span id="debug"></span>
+
+                    <button id = "stop">Reset</button>
+                    <button id = "run">Run</button>
+                    <button id = "jump">Jump</button>
+                    <button id = "backflip">Backflip</button>
+                </div>
+                <div class=single id="slider11">
+                    Body Position <input id="slide" type="range"
+                    autocomplete="off" min="-10" max="10" step="1" value="0"
+                    />
+                    <input id="slider11Val" value="0" size="3">
+                </div>
+                <div class=single id="testSlide">
+                    Waist <input id="slide" type="range"
+                    autocomplete="off" min="150" max="310" step="10" value="180"
+                    />
+                    <input id="testSlideVal" value="180" size="3">
+                </div>
+                <div class=single id="slider0">
+                    TorsoX angle <input id="slide" type="range"
+                    autocomplete="off" min="-180" max="180" step="10" value="0"
+                    />
+                    <input id="slider0Val" value="0" size="3">
+                </div>
+                <div class=single id="slider10">
+                    TorsoY angle <input id="slide" type="range"
+                    autocomplete="off" min="-180" max="180" step="10" value="0"
+                    />
+                    <input id="slider10Val" value="0" size="3">
+                </div>
+                <div class=single id="slider1">
+                    Head <input id="slide" type="range"
+                    autocomplete="off" min="-180" max="180" step="10" value="0"
+                    />
+                    <input id="slider1Val" value="0" size="3">
+                </div>
+                <div class=single id="slider2">
+                    Left Upper Arm <input id="slide" type="range"
+                    autocomplete="off" min="0" max="180" step="10" value="135"
+                    />
+                    <input id="slider2Val" value="135" size="3">
+                </div>
+                <div class=single id="slider3">
+                    Left Lower Arm <input id="slide" type="range"
+                    autocomplete="off" min="-155" max="0" step="10" value="-155"
+                    />
+                    <input id="slider3Val" value="0" size="3">
+                </div>
+                <div class=single id="slider4">
+                    Right Upper Arm <input id="slide" type="range"
+                    autocomplete="off" min="-180" max="0" step="10" value="-135"
+                    />
+                    <input id="slider4Val" value="-135" size="3">
+                </div>
+                <div class=single id="slider5">
+                    Right Lower Arm <input id="slide" type="range"
+                    autocomplete="off" min="-155" max="0" step="10" value="0"
+                    />
+                    <input id="slider5Val" value="0" size="3">
+                </div>
+                <div class=single id="slider6">
+                    Left Upper Leg <input id="slide" type="range"
+                    autocomplete="off" min="-180" max="180" step="10" value="0"
+                    />
+                    <input id="slider6Val" value="0" size="3">
+                </div>
+                <div class=single id="slider7">
+                    Left Lower Leg <input id="slide" type="range"
+                    autocomplete="off" min="-180" max="180" step="10" value="0"
+                    />
+                    <input id="slider7Val" value="0" size="3">
+                </div>
+                <div class=single id="slider8">
+                    Right Upper Leg <input id="slide" type="range"
+                    autocomplete="off" min="-180" max="180" step="10" value="0"
+                    />
+                    <input id="slider8Val" value="0" size="3">
+                </div>
+                <div class=single id="slider9">
+                    Right Lower Leg <input id="slide" type="range"
+                    autocomplete="off" min="-180" max="180" step="10" value="0"
+                    />
+                    <input id="slider9Val" value="0" size="3">
+                </div>
+            </div>
+            <div class="canvas">
+                <canvas id="gl-canvas" width="512" height="512">
+                Oops ... your browser doesn't support the HTML5 canvas element
+                </canvas>
+            </div>
+            <div id="SideMenu" class="menu" float="right">
+                Animation Menu
+                <div class="single">
+                    <button id = "SaveKF">Save Key Frame</button>
+                </div>
+                <div class="single">
+                    <button id = "Save">Save</button>
+                    <input id = "saveName" type="text" value="save">
+                </div>
+                <div class="single">
+                    <button id = "Load">Load</button>
+                    <input id = "loadName" type="text" value="load">
+                </div>
+                <div class="single">
+                    <button id = "Play">Play</button>
+                </div>
+                <div class="single">
+                    <button id = "Reset">Reset</button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <footer> Gunce Kalyoncu & Enver Bashirov </footer>
+</html>
