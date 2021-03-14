@@ -1,3 +1,4 @@
+
 var canvas;
 var gl;
 var program;
@@ -452,7 +453,7 @@ window.onload = function init() {
 
     gl.viewport( 0, 0, canvas.width, canvas.height );
     gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
-
+    debugger;
     program = initShaders( gl, "vertex-shader", "fragment-shader");
 
     gl.useProgram( program);

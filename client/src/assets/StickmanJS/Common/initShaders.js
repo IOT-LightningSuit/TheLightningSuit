@@ -14,7 +14,7 @@ function initShaders( gl, vertexShaderId, fragmentShaderId )
     }
     else {
         vertShdr = gl.createShader( gl.VERTEX_SHADER );
-        gl.shaderSource( vertShdr, vertElem.text );
+        gl.shaderSource( vertShdr, vertElem.innerHTML );
         gl.compileShader( vertShdr );
         if ( !gl.getShaderParameter(vertShdr, gl.COMPILE_STATUS) ) {
             var msg = "Vertex shader failed to compile.  The error log is:"
@@ -31,7 +31,7 @@ function initShaders( gl, vertexShaderId, fragmentShaderId )
     }
     else {
         fragShdr = gl.createShader( gl.FRAGMENT_SHADER );
-        gl.shaderSource( fragShdr, fragElem.text );
+        gl.shaderSource( fragShdr, fragElem.innerHTML );
         gl.compileShader( fragShdr );
         if ( !gl.getShaderParameter(fragShdr, gl.COMPILE_STATUS) ) {
             var msg = "Fragment shader failed to compile.  The error log is:"

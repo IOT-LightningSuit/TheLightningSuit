@@ -12,6 +12,7 @@ import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { FormsModule } from '@angular/forms';
 import { WorkoutSummaryComponent } from './workout-summary/workout-summary.component';
 import { StickmanComponent } from './stickman/stickman.component';
+import { ScripthackComponent } from './scripthack/scripthack.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { StickmanComponent } from './stickman/stickman.component';
     PersonalInfoComponent,
     WorkoutSummaryComponent,
     StickmanComponent,
+    ScripthackComponent,
   ],
   imports: [
     BrowserModule,

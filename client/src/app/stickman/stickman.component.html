@@ -3,7 +3,7 @@
   header, footer {
       padding: 0.2em;
       color: white;
-      background-color: #606349;
+      background-color: #5911cc;
       clear: left;
       text-align: center;
       font-size: 150%;
@@ -41,7 +41,9 @@
 </style>
 
 <html>
-    <script id="vertex-shader" type="x-shader/x-vertex">
+    <div id="vertex-shader" >{{vertex}} </div>
+    <!-- <script id="vertex-shader" type="x-shader/x-vertex">
+        
         attribute  vec4 vPosition;
 
         uniform mat4 modelViewMatrix;
@@ -51,8 +53,11 @@
         {
             gl_Position = projectionMatrix * modelViewMatrix * vPosition;
         }
-    </script>
-    <script id="fragment-shader" type="x-shader/x-fragment">
+    </script> -->
+
+    <div id="fragment-shader" >{{fragmetnt}} </div>
+
+    <!-- <script id="fragment-shader" type="x-shader/x-fragment">
         precision mediump float;
 
         void main()
@@ -60,13 +65,13 @@
             gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 
         }
-    </script>
-    <script type="text/javascript" src="../SourceCode/Common/webgl-utils.js"></script>
-    <script type="text/javascript" src="../SourceCode/Common/InitShaders.js"></script>
-    <script type="text/javascript" src="../SourceCode/Common/MV.js"></script>
-    <script type="text/javascript" src="../SourceCode/project.js"></script>
+    </script> -->
+    <app-script-hack type="text/javascript" src="assets/StickmanJS/Common/webgl-utils.js"></app-script-hack>
+    <app-script-hack type="text/javascript" src="assets/StickmanJS/Common/initShaders.js"></app-script-hack>
+    <app-script-hack type="text/javascript" src="assets/StickmanJS/Common/MV.js"></app-script-hack>
+    <app-script-hack type="text/javascript" src="assets/StickmanJS/project.js"></app-script-hack>
 
-    <header> CS465 - Computer Graphics - Project #2 </header>
+    <header> The Lightning Suite Workout Stickman </header>
 
     <body>
         <div class="menu">
@@ -188,5 +193,5 @@
 
     </body>
 
-    <footer> Gunce Kalyoncu & Enver Bashirov </footer>
+    <!-- <footer> Gunce Kalyoncu & Enver Bashirov </footer> -->
 </html>
