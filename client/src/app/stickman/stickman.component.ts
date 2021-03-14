@@ -31,15 +31,14 @@ export class StickmanComponent implements OnInit {
     `;
 
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  
   }
 
   startWorkout() {
     // listening to http .... should get: slider num, angle
-    const x = document.getElementById("slider9");
+    const slider_element = document.getElementById("slider9");
     const new_event = new CustomEvent('change', { detail: {angle : 100 }});
-    x.dispatchEvent(new_event);
+    slider_element.dispatchEvent(new_event);
     }
 
 }
