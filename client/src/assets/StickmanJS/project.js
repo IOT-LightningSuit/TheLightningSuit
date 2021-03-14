@@ -453,7 +453,6 @@ window.onload = function init() {
 
     gl.viewport( 0, 0, canvas.width, canvas.height );
     gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
-    debugger;
     program = initShaders( gl, "vertex-shader", "fragment-shader");
 
     gl.useProgram( program);
@@ -631,9 +630,11 @@ window.onload = function init() {
          theta[rightUpperLegId] =  event.srcElement.value;
          initNodes(rightUpperLegId);
     };
-    document.getElementById("slider9").oninput = function() {
-        document.getElementById("slider9Val").value = event.srcElement.value;
-        theta[rightLowerLegId] = event.srcElement.value;
+    
+    document.getElementById("slider9").onchange = function() {
+        debugger;
+        document.getElementById("slider9Val").value = event.detail.angle;
+        theta[rightLowerLegId] = event.detail.angle;
         initNodes(rightLowerLegId);
     };
 

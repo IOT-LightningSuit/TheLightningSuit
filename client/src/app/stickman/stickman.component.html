@@ -41,7 +41,7 @@
 </style>
 
 <html>
-    <div id="vertex-shader" >{{vertex}} </div>
+    <div id="vertex-shader" style="display:none;" >{{vertex}} </div>
     <!-- <script id="vertex-shader" type="x-shader/x-vertex">
         
         attribute  vec4 vPosition;
@@ -55,7 +55,7 @@
         }
     </script> -->
 
-    <div id="fragment-shader" >{{fragmetnt}} </div>
+    <div id="fragment-shader" style="display:none;"  >{{fragmetnt}} </div>
 
     <!-- <script id="fragment-shader" type="x-shader/x-fragment">
         precision mediump float;
@@ -74,16 +74,21 @@
     <header> The Lightning Suite Workout Stickman </header>
 
     <body>
+        <div class="text-center">
+            <button (click)="startWorkout()" class="btn btn-primary btn-lg mr-2">Click Here to Start!</button>
+        </div>
+
+
         <div class="menu">
             <div id="MainMenu" class="menu">
                 Main Menu
-                <div class="single">
+                <div class="single" style='text-align: center'>
                     <span id="debug"></span>
 
-                    <button id = "stop">Reset</button>
-                    <button id = "run">Run</button>
-                    <button id = "jump">Jump</button>
-                    <button id = "backflip">Backflip</button>
+                    <button id = "stop" >Reset</button>
+                    <button id = "run" style="display:none;" >Run</button>
+                    <button id = "jump" style="display:none;" >Jump</button>
+                    <button id = "backflip" style="display:none;" >Backflip</button>
                 </div>
                 <div class=single id="slider11">
                     Body Position <input id="slide" type="range"
@@ -169,7 +174,7 @@
                 Oops ... your browser doesn't support the HTML5 canvas element
                 </canvas>
             </div>
-            <div id="SideMenu" class="menu" float="right">
+            <div id="SideMenu" class="menu" float="right" style="display:none;" >
                 Animation Menu
                 <div class="single">
                     <button id = "SaveKF">Save Key Frame</button>
