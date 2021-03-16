@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-personal-info',
@@ -11,7 +14,7 @@ export class PersonalInfoComponent implements OnInit {
   model: any = {}
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +23,12 @@ export class PersonalInfoComponent implements OnInit {
 
   }
 
+  btnClick=function(){
+    this.router.navigateByUrl('/stickman').then(() => {
+      window.location.reload();
+    });
+  
+  }
   cancel() {
     this.cancelRegister.emit(false);
   }

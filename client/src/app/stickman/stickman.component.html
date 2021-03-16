@@ -86,6 +86,9 @@
                     <span id="debug"></span>
 
                     <button id = "stop" >Reset</button>
+                    <button (click)="changeToAngleOne()" >Angle 1</button>
+                    <button (click)="changeToAngleTwo()"  >Angle 2</button>
+                    <button (click)="changeToAngleThree()">Angle 3</button>
                     <button id = "run" style="display:none;" >Run</button>
                     <button id = "jump" style="display:none;" >Jump</button>
                     <button id = "backflip" style="display:none;" >Backflip</button>
@@ -168,6 +171,12 @@
                     />
                     <input id="slider9Val" value="0" size="3">
                 </div>
+                תרגילים אפשריים: <br>
+                1. לחיצת ידיים בעמידה<br>
+                2. הנפת ידיים לצדדים<br>
+                3. הרגמת רגל לאחור עם גומיית התנגדות <br>
+                4. הרמת רגל ב90 מעלות עם גומיה
+                
             </div>
             <div class="canvas">
                 <canvas id="gl-canvas" width="512" height="512">

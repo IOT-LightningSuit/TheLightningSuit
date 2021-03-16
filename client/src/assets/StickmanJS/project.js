@@ -580,9 +580,15 @@ window.onload = function init() {
         theta[waistId ] = event.srcElement.value;
         initNodes(waistId);
     };
-    document.getElementById("slider0").oninput = function() {
-        document.getElementById("slider0Val").value = event.srcElement.value;
-        theta[torsoId ] = event.srcElement.value;
+    document.getElementById("slider0").onchange = function() {
+        debugger;
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        document.getElementById("slider0Val").value = angle;
+        theta[torsoId ] = angle;
         initNodes(torsoId);
     };
     document.getElementById("slider10").oninput = function() {
@@ -632,9 +638,13 @@ window.onload = function init() {
     };
     
     document.getElementById("slider9").onchange = function() {
-        debugger;
-        document.getElementById("slider9Val").value = event.detail.angle;
-        theta[rightLowerLegId] = event.detail.angle;
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        document.getElementById("slider9Val").value = angle;
+        theta[rightLowerLegId] = angle;
         initNodes(rightLowerLegId);
     };
 

@@ -33,28 +33,40 @@ export class StickmanComponent implements OnInit {
 
 
   ngOnInit(): void { 
-    this.getData(); 
+    
   }
 
-  // alertFunc() {
-  //   debugger;
-  //   alert("HELLO!")
-  // }
-
   startWorkout() {
+
+    this.getData(); 
     // listening to http .... should get: slider num, angle
-    const slider_element = document.getElementById("slider9");
-    const new_event = new CustomEvent('change', { detail: {angle : 100 }});
-    slider_element.dispatchEvent(new_event);
+    // const slider_element = document.getElementById("slider9");
+    // const new_event = new CustomEvent('change', { detail: {angle : 100 }});
+    // slider_element.dispatchEvent(new_event);
     }
 
   getData() {
-    //this.service.getData().subscribe(val=>console.log("THE VALUE IS:" + val))
+    this.service.getData().subscribe(data => {
+      console.log( data);
+  })
 
   }
 
-  dummy(){
-    
+  changeToAngleOne() {
+    const slider_element = document.getElementById("slider0");
+    const new_event = new CustomEvent('change', { detail: {angle : 100 }});
+    slider_element.dispatchEvent(new_event);
   }
+  changeToAngleTwo() {
+    const slider_element = document.getElementById("slider9");
+    const new_event = new CustomEvent('change', { detail: {angle : 100 }});
+    slider_element.dispatchEvent(new_event);
+  }
+  changeToAngleThree() {
+    const slider_element = document.getElementById("slider9");
+    const new_event = new CustomEvent('change', { detail: {angle : 100 }});
+    slider_element.dispatchEvent(new_event);
+  }
+
 
 }
