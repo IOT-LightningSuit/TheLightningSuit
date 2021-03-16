@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { WorkoutSummaryComponent } from './workout-summary/workout-summary.component';
 import { StickmanComponent } from './stickman/stickman.component';
 import { ScripthackComponent } from './scripthack/scripthack.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ScripthackComponent } from './scripthack/scripthack.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

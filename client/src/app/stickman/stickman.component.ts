@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientServService } from '../client-serv.service';
 
 @Component({
   selector: 'app-stickman',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StickmanComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ClientServService) { }
    vertex = ` 
    attribute  vec4 vPosition;
 
@@ -31,8 +32,14 @@ export class StickmanComponent implements OnInit {
     `;
 
 
-  ngOnInit(): void {  
+  ngOnInit(): void { 
+    this.getData(); 
   }
+
+  // alertFunc() {
+  //   debugger;
+  //   alert("HELLO!")
+  // }
 
   startWorkout() {
     // listening to http .... should get: slider num, angle
@@ -40,5 +47,14 @@ export class StickmanComponent implements OnInit {
     const new_event = new CustomEvent('change', { detail: {angle : 100 }});
     slider_element.dispatchEvent(new_event);
     }
+
+  getData() {
+    //this.service.getData().subscribe(val=>console.log("THE VALUE IS:" + val))
+
+  }
+
+  dummy(){
+    
+  }
 
 }
