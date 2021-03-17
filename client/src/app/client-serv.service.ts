@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {modelData} from '../app/stickman/data'
+import {modelArray} from '../app/stickman/dataArray'
 
 
 
@@ -16,8 +18,17 @@ export class ClientServService {
     
    }
 
-   getData()  {
+   getData( x:string, y:string)  {
+    // // let headers = new Headers();
+    // // //headers.append('Content-Type', 'application/json');
+    // // //headers.append('projectid', this.id);
+    // // let params = new HttpParams().set("currentExercise","aaa").set("paramName2", "sss"); //Create new HttpParams
 
-     return this.http.post<any>('https://jsonplaceholder.typicode.com/posts',  { title: 'Angular POST Request Example' });
+
+    // const headers = new HttpHeaders().append('Content-Type', 'application/json');
+    // const params = new HttpParams().append('currentExercise', 'aaaaa');
+    return this.http.get('http://192.168.0.12:5000/sensorsdata/Squat');  
    }
 }
+
+
