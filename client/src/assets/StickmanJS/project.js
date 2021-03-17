@@ -631,9 +631,15 @@ window.onload = function init() {
          theta[leftLowerLegId] = event.srcElement.value;
          initNodes(leftLowerLegId);
     };
-    document.getElementById("slider8").oninput = function() {
-        document.getElementById("slider8Val").value = event.srcElement.value;
-         theta[rightUpperLegId] =  event.srcElement.value;
+    document.getElementById("slider8").onchange = function() {
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        console.log('the angle is:' + angle);
+        document.getElementById("slider8Val").value = angle;
+         theta[rightUpperLegId] =  angle;
          initNodes(rightUpperLegId);
     };
     
@@ -643,6 +649,7 @@ window.onload = function init() {
         else {
             angle = event.detail.angle;
         }
+        console.log('the angle is:' + angle);
         document.getElementById("slider9Val").value = angle;
         theta[rightLowerLegId] = angle;
         initNodes(rightLowerLegId);

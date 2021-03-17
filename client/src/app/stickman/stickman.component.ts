@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientServService } from '../client-serv.service';
-import {modelData} from './data'
-import {modelArray} from './dataArray'
+import { IData } from './serverData'
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-stickman',
@@ -9,6 +9,35 @@ import {modelArray} from './dataArray'
   styleUrls: ['./stickman.component.css']
 })
 export class StickmanComponent implements OnInit {
+  // {
+//     interface res {
+//         lll[] res;
+//     }
+
+//  class lll{
+//      string ss;
+//      _Exercise ex;
+//  }
+
+//  Interface _Exercise{
+//      public readonly JointLimits[] joints;
+//         public Exercise()
+//         {
+//             joints = new JointLimits[13];
+//         }
+// }
+
+//     intarface _JointLimits{
+//         public float startAngleX;
+//         //public float startAngleY;
+//         //public float startAngleZ;
+//         public float endAngleX;
+//         //public float endAngleY;
+//         //public float endAngleZ;
+//         public string errorMessage;
+//     }
+
+
 
 
 
@@ -42,21 +71,48 @@ export class StickmanComponent implements OnInit {
   }
 
   startWorkout() {
-
-    //this.getData(); 
+    this.getData(); 
     // listening to http .... should get: slider num, angle
-    const slider_element = document.getElementById("slider9");
-    const new_event = new CustomEvent('change', { detail: {angle : -150 }});
-    slider_element.dispatchEvent(new_event);
+    // const slider_element = document.getElementById("slider9");
+    // const new_event = new CustomEvent('change', { detail: {angle : -150 }});
+    // slider_element.dispatchEvent(new_event);
     }
 
   getData() {
-    this.service.getData( "param1", "param2").subscribe(data => {
-
-      //let res = JSON.
-  })
+    this.service.getData( "param1", "param2").subscribe ( (response:any) => {
+      console.log(response[0]);
+      this.moveStickman(response[0].bodyAngles);
+      this.printRemark(response[0].remark);
+    })
+  }
+  moveStickman (arr: number[]) {
+    arr.forEach((item, index)=>{
+      this.moveByAngleAndSlider(item,index);
+    })
+  }
+  moveByAngleAndSlider (angle : number, index: number) {
+    // here you need to move the right slider according to the index you got!
+    if(index == 0) {
+    const slider_element = document.getElementById("slider8");
+    const new_event = new CustomEvent('change', { detail: {angle : angle }});
+    slider_element.dispatchEvent(new_event);
+    }
+    if(index == 1) {
+      const slider_element = document.getElementById("slider9");
+      const new_event = new CustomEvent('change', { detail: {angle : angle }});
+      slider_element.dispatchEvent(new_event);
+      }
 
   }
+  printRemark (remark: string) {}
+
+
+
+  // .map((res: Response) => res.json())
+  // .subscribe((json: Object) => {
+  //     this.user = new User().fromJSON(json);
+
+ 
 
   changeToAngleOne() {
     const slider_element = document.getElementById("slider0");

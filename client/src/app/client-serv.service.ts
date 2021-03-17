@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import {modelData} from '../app/stickman/data'
-import {modelArray} from '../app/stickman/dataArray'
+import { Observable, pipe } from 'rxjs';
+import { IData } from '../app/stickman/serverData';
+import { map } from 'rxjs/operators';
 
 
 
@@ -27,8 +27,27 @@ export class ClientServService {
 
     // const headers = new HttpHeaders().append('Content-Type', 'application/json');
     // const params = new HttpParams().append('currentExercise', 'aaaaa');
-    return this.http.get('http://192.168.0.12:5000/sensorsdata/Squat');  
+    return this.http.get('http://localhost:5000/sensorsdata/Squat').pipe(
+      map((response: IData[]) => {
+        return response;
+      })
+
+    ) 
    }
-}
+  }
 
 
+
+
+// login(model: any) {
+//   return this.http.post(this.baseUrl + 'account/login', model).pipe(
+//     map((response: User) => {
+//       const user = response;
+//       if(user) {
+//         localStorage.setItem('user', JSON.stringify(user));
+//         this.currentUserSource.next(user);
+//       }
+//     })
+
+//   )
+// }

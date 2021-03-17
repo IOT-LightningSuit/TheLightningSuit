@@ -24,6 +24,8 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   btnClick=function(){
+    console.log("here should be http get with the name of the person");
+    debugger;
     this.router.navigateByUrl('/stickman').then(() => {
       window.location.reload();
     });
