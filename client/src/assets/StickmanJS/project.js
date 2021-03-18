@@ -637,7 +637,6 @@ window.onload = function init() {
         else {
             angle = event.detail.angle;
         }
-        console.log('the angle is:' + angle);
         document.getElementById("slider8Val").value = angle;
          theta[rightUpperLegId] =  angle;
          initNodes(rightUpperLegId);
@@ -649,7 +648,6 @@ window.onload = function init() {
         else {
             angle = event.detail.angle;
         }
-        console.log('the angle is:' + angle);
         document.getElementById("slider9Val").value = angle;
         theta[rightLowerLegId] = angle;
         initNodes(rightLowerLegId);

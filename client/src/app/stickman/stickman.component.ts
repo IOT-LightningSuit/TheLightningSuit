@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./stickman.component.css']
 })
 export class StickmanComponent implements OnInit {
+  workoutInProgress : boolean;
   // {
 //     interface res {
 //         lll[] res;
@@ -71,7 +72,10 @@ export class StickmanComponent implements OnInit {
   }
 
   startWorkout() {
+    this.workoutInProgress = true;
+    //while (this.workoutInProgress) {
     this.getData(); 
+   // }
     // listening to http .... should get: slider num, angle
     // const slider_element = document.getElementById("slider9");
     // const new_event = new CustomEvent('change', { detail: {angle : -150 }});
@@ -79,11 +83,7 @@ export class StickmanComponent implements OnInit {
     }
 
   getData() {
-    this.service.getData( "param1", "param2").subscribe ( (response:any) => {
-      console.log(response[0]);
-      this.moveStickman(response[0].bodyAngles);
-      this.printRemark(response[0].remark);
-    })
+    this.service.getData( "param1", "param2");
   }
   moveStickman (arr: number[]) {
     arr.forEach((item, index)=>{

@@ -27,12 +27,13 @@ export class ClientServService {
 
     // const headers = new HttpHeaders().append('Content-Type', 'application/json');
     // const params = new HttpParams().append('currentExercise', 'aaaaa');
-    return this.http.get('http://localhost:5000/sensorsdata/Squat').pipe(
-      map((response: IData[]) => {
-        return response;
-      })
+    return setInterval( () => {
+      this.http.get<IData[]>('http://localhost:5000/sensorsdata/Squat').subscribe ( (response:any) => {
+    console.log(response[0]);
+    
+  })},100);
 
-    ) 
+     
    }
   }
 
