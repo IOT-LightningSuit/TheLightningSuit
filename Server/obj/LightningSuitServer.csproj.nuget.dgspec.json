@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dekel\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj": {}
+    "C:\\Users\\mayan\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dekel\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj": {
+    "C:\\Users\\mayan\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dekel\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj",
+        "projectUniqueName": "C:\\Users\\mayan\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj",
         "projectName": "LightningSuitServer",
-        "projectPath": "C:\\Users\\dekel\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj",
-        "packagesPath": "C:\\Users\\dekel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dekel\\Source\\Repos\\TheLightningSuit\\Server\\obj\\",
+        "projectPath": "C:\\Users\\mayan\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj",
+        "packagesPath": "C:\\Users\\mayan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mayan\\Source\\Repos\\TheLightningSuit\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\dekel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mayan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +31,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +43,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MongoDB.Driver": {
               "target": "Package",
@@ -68,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
