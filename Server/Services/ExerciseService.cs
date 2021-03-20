@@ -80,6 +80,8 @@ namespace LightningSuitServer.Services
                             else if (!heading && currentExercise.joints[i].max > currentExercise.joints[i].endAngleX + angleTolerance)
                                 _snap.Remark = currentExercise.joints[i].errorMessage2;
                         }
+
+                    currentExercise.joints[i].prev = currentExercise.joints[i].curr;
                     }
                 }
 

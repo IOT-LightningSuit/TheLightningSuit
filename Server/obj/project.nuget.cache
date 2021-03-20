@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m5fD9c795M6fXw8k1pkld5sgEn9QDHaCVAX4Q2eq+rPLUWmMBRGHKyW5Na1z0Qldzp/O9g1GHXuy4X0eOgsAQg==",
+  "dgSpecHash": "UgcFD2sFJ7wCoCnImAyRnLcqDV3R+Siu88aDRwVXvwvNK2rWmRck1BawXVclW8ZRiduXBfIStQIFd0L/kO4D6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mayan\\Source\\Repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj",
+  "projectFilePath": "C:\\Users\\mayan\\source\\repos\\TheLightningSuit\\Server\\LightningSuitServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mayan\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\mayan\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
