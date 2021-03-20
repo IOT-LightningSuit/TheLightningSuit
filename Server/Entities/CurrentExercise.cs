@@ -2,6 +2,6 @@
 {
     public class CurrentExercise
     {
-        public string CurrentEx { get; set; } = "Squat";
+        public string CurrentEx { get; set; } = "ShoulderPress";
     }
 }

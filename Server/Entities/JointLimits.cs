@@ -3,8 +3,8 @@
     public class JointLimits
     {
         public bool jointIsCheckedInExercise;
-        public float startAngleX;
-        public float endAngleX;
+        public float startAngle;
+        public float endAngle;
         public string errorMessage1;
         public string errorMessage2;
         public float curr;
@@ -14,14 +14,14 @@
 
         public JointLimits(float sax, float eax, string err1, string err2, bool check)
         {
-            if (startAngleX > endAngleX)
+            if (startAngle > endAngle)
                 System.Console.WriteLine("Make sure to define start angle less than end angle!");
 
             jointIsCheckedInExercise = check;
-            startAngleX = sax;
-            endAngleX = eax;
+            startAngle = sax;
+            endAngle = eax;
             errorMessage1 = err1;
-            errorMessage1 = err2;
+            errorMessage2 = err2;
             curr = sax;
             prev = sax;
             min = sax;

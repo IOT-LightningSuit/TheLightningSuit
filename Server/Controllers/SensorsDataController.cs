@@ -33,7 +33,8 @@ namespace LightningSuitServer.Controllers
         [HttpGet("{userName}/{result}")]
         public List<int> Get(string userName, int result)
         {
-            if (result == -1)
+            Console.WriteLine("hh");
+            if (result == 101)
             {
                 _writer.AddUser(userName);
                 return _writer.GetResults(userName);
@@ -49,8 +50,8 @@ namespace LightningSuitServer.Controllers
             try
             {
                 using var reader = new StreamReader(Request.Body);
-                var body = await reader.ReadToEndAsync();
-                ParseAndAdd(body);
+                var body = reader.ReadToEndAsync();
+                ParseAndAdd(body.Result);
             }
             catch (Exception)
             { /* */ }
@@ -82,7 +83,9 @@ namespace LightningSuitServer.Controllers
                 zValue = tempFloat;
 
                 Console.WriteLine(message);
-                _snap.Change(sensor, xValue);
+                if (sensor == 1 || sensor == 5) _snap.Change(sensor, yValue);
+                //else if (sensor == 3 || sensor == 4) _snap.Change(sensor, zValue);
+                else _snap.Change(sensor, xValue);
             }
         }
     }

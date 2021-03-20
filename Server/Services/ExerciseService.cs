@@ -22,29 +22,37 @@ namespace LightningSuitServer.Services
 
             Exercise squat = new Exercise();
             squat.SetJoint(0, 90, 90, "Keep your hands straight forward!", "Keep your hands straight forward!", true);
-            //squat.SetJoint(1, 90, 180, "Raise your right arm!", true);
-            //squat.SetJoint(2, 90, 180, "Raise tour left arm!", true);
-            //squat.SetJoint(3, 90, 180, "", true);
-            //squat.SetJoint(4, 90, 180, "", true);
-            //squat.SetJoint(5, 90, 180, "", true);
-            //squat.SetJoint(6, 90, 180, "", true);
+            squat.SetJoint(1, 90, 180, "Raise your right arm!","", true);
+            squat.SetJoint(2, 90, 180, "Raise tour left arm!","", true);
+            squat.SetJoint(3, 90, 180, "", "", true);
+            squat.SetJoint(4, 90, 180, "", "", true);
+            squat.SetJoint(5, 90, 180, "", "", true);
+            squat.SetJoint(6, 90, 180, "", "", true);
             _exercises.Add(Tuple.Create("Squat", squat));
 
             Exercise shoulderPress = new Exercise();
-            //shoulderPress.SetJoint(0, 0, 0, "Keep your elbow straight!", true);
-            //shoulderPress.SetJoint(1, 180, 0, "Raise your left arm!", true);
-            //shoulderPress.SetJoint(2, 0, 0, "Keep your elbow straight!", true);
-            //shoulderPress.SetJoint(3, -180, 0, "Raise your left arm!", true);
-            //shoulderPress.SetJoint(4, 0, 0, "Keep your legs straight!", true);
-            //shoulderPress.SetJoint(5, 0, 0, "Keep your legs straight!", true);
-            //shoulderPress.SetJoint(6, 0, 0, "Keep your legs straight!", true);
+            shoulderPress.SetJoint(0, 130, 140, "Keep your left elbow straight!", "Keep your left elbow straight!", false);
+            shoulderPress.SetJoint(1, -135, -70, "Get your left arm all the way down!", "Raise your left arm to 90 degrees sideways", true);
+            shoulderPress.SetJoint(2, 0, 0, "", "", false);
+            shoulderPress.SetJoint(3, 0, 0, "", "", false);
+            shoulderPress.SetJoint(4, 0, 0, "", "", false);
+            shoulderPress.SetJoint(5, 164, 102, "Get your right arm all the way down!", "Raise your right arm to 90 degrees sideways", true);
+            shoulderPress.SetJoint(6, 125, 135, "Keep your right elbow straight!", "Keep your right elbow straight!", false);
             _exercises.Add(Tuple.Create("ShoulderPress", shoulderPress));
+
+            Exercise leftLegBack = new Exercise();
+            leftLegBack.SetJoint(0, 0, 0, "", "", false);
+            leftLegBack.SetJoint(1, 0, 0, "", "", false);
+            leftLegBack.SetJoint(2, 0, 0, "", "", false);
+            leftLegBack.SetJoint(3, 74, 116, "Make sure your left leg goes all the way back!", "Push your leg back but not too far!", false);
+            leftLegBack.SetJoint(4, 49, 49, "Keep your right leg steady!", "Keep your right leg steady!", true);
+            leftLegBack.SetJoint(5, 0, 0, "", "", false);
+            leftLegBack.SetJoint(6, 0, 0, "", "", false);
+            _exercises.Add(Tuple.Create("LeftLegBack", leftLegBack));
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            const float angleTolerance = 5.0f;
-
             while (!stoppingToken.IsCancellationRequested)
             {   
                 currentExercise = _exercises.Find(x => x.Item1 == _curr.CurrentEx)?.Item2;
@@ -53,35 +61,12 @@ namespace LightningSuitServer.Services
                 for (int i = 0; i < currentExercise.joints.Length; i++)
                 {
                     currentExercise.joints[i].curr = _snap.BodyAngles[i];
-                    // set movement direction according to prev angle - heading true means heading is from start to end
+
                     if (currentExercise.joints[i].jointIsCheckedInExercise) {
-                        bool heading = currentExercise.joints[i].curr - currentExercise.joints[i].prev > 0.0f;
-                        // update min/max movement
-                        if (!heading && currentExercise.joints[i].curr < currentExercise.joints[i].min)
-                            currentExercise.joints[i].min = currentExercise.joints[i].curr;
-                        else if (heading && currentExercise.joints[i].curr > currentExercise.joints[i].max)
-                            currentExercise.joints[i].max = currentExercise.joints[i].curr;
-
-                        // reached the trainer's minimal movement
-                        if (currentExercise.joints[i].min == currentExercise.joints[i].prev) {
-                            // movement hasn't reached all the way through
-                            if (heading && currentExercise.joints[i].min > currentExercise.joints[i].startAngleX + angleTolerance)
-                                _snap.Remark = currentExercise.joints[i].errorMessage1;
-                            // movement is too wide
-                            else if (heading && currentExercise.joints[i].min < currentExercise.joints[i].startAngleX - angleTolerance)
-                                _snap.Remark = currentExercise.joints[i].errorMessage2;
-                        }
-                        // reached the trainer's maximal movement
-                        else if (currentExercise.joints[i].max == currentExercise.joints[i].prev)
-                        {
-                            // movement hasn't reached all the way through
-                            if (!heading && currentExercise.joints[i].max < currentExercise.joints[i].endAngleX - angleTolerance)
-                                _snap.Remark = currentExercise.joints[i].errorMessage1;
-                            else if (!heading && currentExercise.joints[i].max > currentExercise.joints[i].endAngleX + angleTolerance)
-                                _snap.Remark = currentExercise.joints[i].errorMessage2;
-                        }
-
-                    currentExercise.joints[i].prev = currentExercise.joints[i].curr;
+                        if (currentExercise.joints[i].curr < currentExercise.joints[i].startAngle)
+                            _snap.Remark = currentExercise.joints[i].errorMessage1;
+                        else if (currentExercise.joints[i].curr > currentExercise.joints[i].endAngle)
+                            _snap.Remark = currentExercise.joints[i].errorMessage2;
                     }
                 }
 
@@ -90,7 +75,7 @@ namespace LightningSuitServer.Services
                     _snap.Remark = "Good Job!";
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(2000);
             }
             
         }
