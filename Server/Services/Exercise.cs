@@ -10,9 +10,9 @@ namespace LightningSuitServer.Services
             joints = new JointLimits[7];
         }
 
-        public void SetJoint(int index, float sax,/* float say, float saz, */ float eax, /*float eay, float eaz,*/ string err)
+        public void SetJoint(int index, float sax,float eax, string err1, string err2, bool check)
         {
-            joints[index] = new JointLimits(sax, eax, err);
+            joints[index] = new JointLimits(sax, eax, err1, err2, check);
         }
     }
 }
