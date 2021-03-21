@@ -36,7 +36,7 @@ namespace LightningSuitServer.Repository
             var doc = collection.Find(filter).FirstOrDefault();
 
             List<int> newResults = new List<int>();
-            foreach(var res in doc.GetElement("Results").Value.AsBsonArray)
+            foreach(var res in doc?.GetElement("Results").Value.AsBsonArray)
             {
                 newResults.Add(res.AsInt32);
             }

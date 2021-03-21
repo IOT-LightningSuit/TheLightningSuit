@@ -31,21 +31,21 @@ namespace LightningSuitServer.Services
             _exercises.Add(Tuple.Create("Squat", squat));
 
             Exercise shoulderPress = new Exercise();
-            shoulderPress.SetJoint(0, 130, 140, "Keep your left elbow straight!", "Keep your left elbow straight!", false);
-            shoulderPress.SetJoint(1, -135, -70, "Get your left arm all the way down!", "Raise your left arm to 90 degrees sideways", true);
+            shoulderPress.SetJoint(0, 130, 140, "", "", false);
+            shoulderPress.SetJoint(1, -140, -70, "Don't put your left arm down too much!", "Raise your left arm to 90 degrees sideways", true);
             shoulderPress.SetJoint(2, 0, 0, "", "", false);
             shoulderPress.SetJoint(3, 0, 0, "", "", false);
             shoulderPress.SetJoint(4, 0, 0, "", "", false);
-            shoulderPress.SetJoint(5, 164, 102, "Get your right arm all the way down!", "Raise your right arm to 90 degrees sideways", true);
-            shoulderPress.SetJoint(6, 125, 135, "Keep your right elbow straight!", "Keep your right elbow straight!", false);
+            shoulderPress.SetJoint(5, 102, 164, "Don't put your right arm down too much!", "Get your right arm all the way down!", true);
+            shoulderPress.SetJoint(6, 125, 135, "", "", false);
             _exercises.Add(Tuple.Create("ShoulderPress", shoulderPress));
 
             Exercise leftLegBack = new Exercise();
             leftLegBack.SetJoint(0, 0, 0, "", "", false);
             leftLegBack.SetJoint(1, 0, 0, "", "", false);
             leftLegBack.SetJoint(2, 0, 0, "", "", false);
-            leftLegBack.SetJoint(3, 74, 116, "Make sure your left leg goes all the way back!", "Push your leg back but not too far!", false);
-            leftLegBack.SetJoint(4, 49, 49, "Keep your right leg steady!", "Keep your right leg steady!", true);
+            leftLegBack.SetJoint(3, 81, 100, "Make sure your left leg goes back but not too much!", "Push your leg back but not too far!", true);
+            leftLegBack.SetJoint(4, 63, 77, "Keep your right leg steady!", "Keep your right leg steady!", true);
             leftLegBack.SetJoint(5, 0, 0, "", "", false);
             leftLegBack.SetJoint(6, 0, 0, "", "", false);
             _exercises.Add(Tuple.Create("LeftLegBack", leftLegBack));

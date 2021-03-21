@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using LightningSuitServer.Entities;
 using LightningSuitServer.Repository;
+using System.Threading.Tasks;
 
 namespace LightningSuitServer.Controllers
 {
@@ -31,17 +32,26 @@ namespace LightningSuitServer.Controllers
         }
 
         [HttpGet("{userName}/{result}")]
-        public List<int> Get(string userName, int result)
+        public int Get([FromRoute] string userName, [FromRoute] int result)
         {
-            Console.WriteLine("hh");
+            Console.ForegroundColor = ConsoleColor.Blue;
             if (result == 101)
             {
+                Console.WriteLine($"{userName} logged on!");
                 _writer.AddUser(userName);
-                return _writer.GetResults(userName);
+                return 0;
             }
 
+            Console.WriteLine($"{userName} has finished his workout with a score of {result}!");
             _writer.AddResult(userName, result);
-            return _writer.GetResults(userName);
+
+            var sum = 0;
+            var results = _writer.GetResults(userName);
+            foreach (var res in results)
+                sum += res;
+            if (results.Count == 0)
+                return 0;
+            return sum / results.Count;
         }
 
         [HttpPost]
@@ -59,6 +69,7 @@ namespace LightningSuitServer.Controllers
 
         private void ParseAndAdd(string message)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             var sIndex = message.IndexOf('S');
             var xIndex = message.IndexOf('X');
             var yIndex = message.IndexOf('Y');
