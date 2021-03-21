@@ -1,11 +1,10 @@
 #include "MPU9250.h"
-//#include <SoftwareSerial.h>
 #include <Wire.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-const char* ssid = "Dana&Maayan";
-const char* password = "0534328284";
+const char* ssid = "Pixel_7023";
+const char* password = "b67032f0959d";
 
 const int rxPin = 5;
 const int txPin = 4;
@@ -13,25 +12,25 @@ const int txPin = 4;
 int status;
 int accX, accY, accZ;
 String str;
-//SoftwareSerial espSerial(rxPin, txPin);
+int printSensor = 7;
 
 typedef enum ESensors {
-  LEFT_ARM,
-  LEFT_BICEP,
-  LEFT_SHIN,
-  RIGHT_SHIN,
-  THIGHS,
-  RIGHT_BICEP,
-  RIGHT_ARM,
+  LEFT_LOWER_ARM,
+  LEFT_UPPER_ARM,
+  SHINS,
+  LEFT_THIGH,
+  RIGHT_THIGH,
+  RIGHT_UPPER_ARM,
+  RIGHT_LOWER_ARM,
   NUM_OF_CONNECTED_SENSORS
 };
 
 const String partsStrings[NUM_OF_CONNECTED_SENSORS] = {
   "Left Forearm",
   "Left Shoulder",
-  "Left Cast",
-  "Right Cast",
-  "Thighs",
+  "Left Thigh",
+  "Right Thigh",
+  "Shins",
   "Right Bicep",
   "Right Arm"
 };
@@ -52,8 +51,9 @@ void setup() {
   Serial.begin(115200);
   while (!Serial) {}
   Serial.println("Connection to serial successful!");
+  Serial.setTimeout(20);
 
-  delay(5000);
+  delay(2000);
 
   Serial.print("Wifi connecting to ");
   Serial.println(ssid);
@@ -109,12 +109,18 @@ void loop() {
 
     // Display the data
     str = String("S") + String(i) + String("X") + String(x) + String("Y") + String(y) + String("Z") + String(z) + String("E");
-    Serial.println(str);
+    String tmp = Serial.readStringUntil('\n');
+    if (tmp != String("")) {
+      printSensor = tmp.toInt();
+    }
+    if (printSensor >= 7 || i == printSensor) {
+      Serial.println(str);
+    }
 
     HTTPClient http;
-    http.begin("http://192.168.0.7:5000/sensorsdata");
+    http.begin("http://192.168.0.97:5000/sensorsdata");
     http.addHeader("Content-Type", "text/plain");
     http.POST(str);
-    delay(50);
+    delay(30);
   }
 }
