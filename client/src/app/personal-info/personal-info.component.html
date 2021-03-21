@@ -1,42 +1,51 @@
 
-<p>the user chose the following workout (1-easy 2-normal 3-hard): {{workoutMode}}</p>
-
 <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
     <h2 class="text-center text-primary">Personal information</h2>
 
 
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-12">
              <input type="text" class="form-control" name="firstName" 
-                 [(ngModel)]="model.firstName" placeholder="First name">
+                 [(ngModel)]="username" placeholder="Username:">
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-6" style="display:none;">
         <input type="text" class="form-control" name="lastName" 
             [(ngModel)]="model.lastName" placeholder="Last name">
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-3" style="display:none;">
              <input type="number" class="form-control" name="height" 
                [(ngModel)]="model.height" placeholder="Height(cm)">
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-3" style="display:none;">
             <input type="number" class="form-control" name="age" 
               [(ngModel)]="model.age" placeholder="Age">
        </div>
-       <div class="form-group col-md-3">
+       <div class="form-group col-md-3" style="display:none;">
         <input type="number" class="form-control" name="weight" 
           [(ngModel)]="model.weight" placeholder="Weight(kg)">
    </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-3" style="display:none;">
             <input type="number" class="form-control" name="aaa" 
                 [(ngModel)]="model.aaa" placeholder="something">
         </div>
     </div>
-    <div class="form-group text-center">
-        <button class="btn btn-success mr-2" (click)="btnClick()" routerLink='/stickman'>Start now</button>
-        <button class="btn btn-default mr-2" (click)="cancel()" type="button">Cancel</button>
+    <h2 class="text-center text-secondary">Please choose your exercise</h2>
+    <div class="form-group text-center mt-4">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <button class="btn btn-success mr-2" (click)="btnClick(1)">Shoulder Press</button>
+              </div>
+              <div class="col-sm">
+                <button class="btn btn-success mr-2" (click)="btnClick(2)" >Left Leg Swing</button>
+              </div>
+            </div>
+          </div>
+        <!-- <button class="btn btn-success mr-2" (click)="btnClick()" routerLink='/stickman'>Start now</button>
+        <button class="btn btn-default mr-2" (click)="cancel()" type="button">Cancel</button> -->
     </div>
 
 

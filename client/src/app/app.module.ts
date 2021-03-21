@@ -14,6 +14,7 @@ import { WorkoutSummaryComponent } from './workout-summary/workout-summary.compo
 import { StickmanComponent } from './stickman/stickman.component';
 import { ScripthackComponent } from './scripthack/scripthack.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     WorkoutSummaryComponent,
     StickmanComponent,
     ScripthackComponent,
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,

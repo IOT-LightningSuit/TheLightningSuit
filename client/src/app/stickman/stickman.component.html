@@ -36,7 +36,7 @@
     border: 1px solid lightgray;
   }
   html {
-      background-color: #eaf2b0;;
+      background-color: #eaf2b0;
   }
 </style>
 
@@ -71,12 +71,17 @@
     <app-script-hack type="text/javascript" src="assets/StickmanJS/Common/MV.js"></app-script-hack>
     <app-script-hack type="text/javascript" src="assets/StickmanJS/project.js"></app-script-hack>
 
-    <header> The Lightning Suite Workout Stickman </header>
+    <header> Good Luck!</header>
 
     <body>
-        <div class="text-center">
+        <div *ngIf="!workoutOngoing" class="text-center">
             <button (click)="startWorkout()" class="btn btn-primary btn-lg mr-2">Click Here to Start!</button>
         </div>
+        <div *ngIf="workoutOngoing" class="text-center">
+            <!-- <button (click)="startWorkout()" class="btn btn-primary btn-lg mr-2">Click Here to Start!</button> -->
+            <h4>Current status:  {{message}}</h4>
+        </div>
+
 
 
         <div class="menu">
@@ -88,95 +93,91 @@
                     <button id = "stop" >Reset</button>
                     <button (click)="changeToAngleOne()" >Angle 1</button>
                     <button (click)="changeToAngleTwo()"  >Angle 2</button>
-                    <button (click)="changeToAngleThree()">Angle 3</button>
+                    <button  (click)="changeToAngleThree()">Angle 3</button>
                     <button id = "run" style="display:none;" >Run</button>
                     <button id = "jump" style="display:none;" >Jump</button>
                     <button id = "backflip" style="display:none;" >Backflip</button>
                 </div>
-                <div class=single id="slider11">
+                <div style="">
+                <div class=single id="slider11" style="display:none;">
                     Body Position <input id="slide" type="range"
                     autocomplete="off" min="-10" max="10" step="1" value="0"
                     />
                     <input id="slider11Val" value="0" size="3">
                 </div>
-                <div class=single id="testSlide">
+                <div class=single id="testSlide" style="display:none;">
                     Waist <input id="slide" type="range"
                     autocomplete="off" min="150" max="310" step="10" value="180"
                     />
                     <input id="testSlideVal" value="180" size="3">
                 </div>
-                <div class=single id="slider0">
+                <div class=single id="slider0" style="display:none;">
                     TorsoX angle <input id="slide" type="range"
                     autocomplete="off" min="-180" max="180" step="10" value="0"
                     />
                     <input id="slider0Val" value="0" size="3">
                 </div>
-                <div class=single id="slider10">
+                <div class=single id="slider10" style="display:none;">
                     TorsoY angle <input id="slide" type="range"
                     autocomplete="off" min="-180" max="180" step="10" value="0"
                     />
                     <input id="slider10Val" value="0" size="3">
                 </div>
-                <div class=single id="slider1">
+                <div class=single id="slider1" style="display:none;">
                     Head <input id="slide" type="range"
                     autocomplete="off" min="-180" max="180" step="10" value="0"
                     />
                     <input id="slider1Val" value="0" size="3">
                 </div>
-                <div class=single id="slider2">
+                <div class=single id="slider2" style="display:none;">
                     Left Upper Arm <input id="slide" type="range"
                     autocomplete="off" min="0" max="180" step="10" value="135"
                     />
                     <input id="slider2Val" value="135" size="3">
                 </div>
-                <div class=single id="slider3">
+                <div class=single id="slider3" style="display:none;">
                     Left Lower Arm <input id="slide" type="range"
                     autocomplete="off" min="-155" max="0" step="10" value="-155"
                     />
                     <input id="slider3Val" value="0" size="3">
                 </div>
-                <div class=single id="slider4">
+                <div class=single id="slider4" style="display:none;">
                     Right Upper Arm <input id="slide" type="range"
                     autocomplete="off" min="-180" max="0" step="10" value="-135"
                     />
                     <input id="slider4Val" value="-135" size="3">
                 </div>
-                <div class=single id="slider5">
+                <div class=single id="slider5" style="display:none;">
                     Right Lower Arm <input id="slide" type="range"
                     autocomplete="off" min="-155" max="0" step="10" value="0"
                     />
                     <input id="slider5Val" value="0" size="3">
                 </div>
-                <div class=single id="slider6">
+                <div class=single id="slider6" style="display:none;">
                     Left Upper Leg <input id="slide" type="range"
                     autocomplete="off" min="-180" max="180" step="10" value="0"
                     />
                     <input id="slider6Val" value="0" size="3">
                 </div>
-                <div class=single id="slider7">
+                <div class=single id="slider7" style="display:none;">
                     Left Lower Leg <input id="slide" type="range"
                     autocomplete="off" min="-180" max="180" step="10" value="0"
                     />
                     <input id="slider7Val" value="0" size="3">
                 </div>
-                <div class=single id="slider8">
+                <div class=single id="slider8" style="display:none;">
                     Right Upper Leg <input id="slide" type="range"
                     autocomplete="off" min="-180" max="180" step="10" value="0"
                     />
                     <input id="slider8Val" value="0" size="3">
                 </div>
-                <div class=single id="slider9">
+                <div class=single id="slider9" style="display:none;">
                     Right Lower Leg <input id="slide" type="range"
                     autocomplete="off" min="-180" max="180" step="10" value="0"
                     />
                     <input id="slider9Val" value="0" size="3">
                 </div>
-                תרגילים אפשריים: <br>
-                1. לחיצת ידיים בעמידה<br>
-                2. הנפת ידיים לצדדים<br>
-                3. הרגמת רגל לאחור עם גומיית התנגדות <br>
-                4. הרמת רגל ב90 מעלות עם גומיה
-                
+            </div>
             </div>
             <div class="canvas">
                 <canvas id="gl-canvas" width="512" height="512">

@@ -581,7 +581,6 @@ window.onload = function init() {
         initNodes(waistId);
     };
     document.getElementById("slider0").onchange = function() {
-        debugger;
         var angle;
         if (typeof event.detail == "undefined")   angle = event.target.value;
         else {
@@ -601,34 +600,64 @@ window.onload = function init() {
         theta[headId] = event.srcElement.value;
         initNodes(headId);
     };
-    document.getElementById("slider2").oninput = function() {
-        document.getElementById("slider2Val").value = event.srcElement.value;
-         theta[leftUpperArmId] = event.srcElement.value;
+    document.getElementById("slider2").onchange = function() {
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        document.getElementById("slider2Val").value = angle;
+         theta[leftUpperArmId] = angle;
          initNodes(leftUpperArmId);
     };
-    document.getElementById("slider3").oninput = function() {
-        document.getElementById("slider3Val").value = event.srcElement.value;
-         theta[leftLowerArmId] =  event.srcElement.value;
+    document.getElementById("slider3").onchange = function() {
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        document.getElementById("slider3Val").value = angle;
+         theta[leftLowerArmId] =  angle;
          initNodes(leftLowerArmId);
     };
-    document.getElementById("slider4").oninput = function() {
-        document.getElementById("slider4Val").value = event.srcElement.value;
-        theta[rightUpperArmId] = event.srcElement.value;
+    document.getElementById("slider4").onchange = function() {
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        document.getElementById("slider4Val").value = angle;
+        theta[rightUpperArmId] = angle;
         initNodes(rightUpperArmId);
     };
-    document.getElementById("slider5").oninput = function() {
-        document.getElementById("slider5Val").value = event.srcElement.value;
-         theta[rightLowerArmId] =  event.srcElement.value;
+    document.getElementById("slider5").onchange = function() {
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        document.getElementById("slider5Val").value = angle;
+         theta[rightLowerArmId] =  angle;
          initNodes(rightLowerArmId);
     };
-    document.getElementById("slider6").oninput = function() {
-        document.getElementById("slider6Val").value = event.srcElement.value;
-        theta[leftUpperLegId] = event.srcElement.value;
+    document.getElementById("slider6").onchange = function() {
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        document.getElementById("slider6Val").value = angle;
+        theta[leftUpperLegId] = angle;
         initNodes(leftUpperLegId);
     };
-    document.getElementById("slider7").oninput = function() {
-        document.getElementById("slider7Val").value = event.srcElement.value;
-         theta[leftLowerLegId] = event.srcElement.value;
+    document.getElementById("slider7").onchange = function() {
+        var angle;
+        if (typeof event.detail == "undefined")   angle = event.target.value;
+        else {
+            angle = event.detail.angle;
+        }
+        document.getElementById("slider7Val").value = angle;
+         theta[leftLowerLegId] = angle;
          initNodes(leftLowerLegId);
     };
     document.getElementById("slider8").onchange = function() {

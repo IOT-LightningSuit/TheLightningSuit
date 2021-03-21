@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {IUser} from '../personal-info/user';
 
 @Component({
   selector: 'app-workout-summary',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkoutSummaryComponent implements OnInit {
 
-  constructor() { }
+  
+  user2 : IUser;
+  userAverage :any;
+  grade : number;
 
+  constructor() { }
+  
   ngOnInit(): void {
+    this.userAverage = JSON.parse(localStorage.getItem("userAverage"));
+    this.user2 = JSON.parse(localStorage.getItem("userParam"));
+    this.grade = JSON.parse(localStorage.getItem("userGrade"));
+
   }
 
 }
